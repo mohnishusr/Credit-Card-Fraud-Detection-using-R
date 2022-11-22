@@ -56,13 +56,5 @@ predicted_val<-predict(decision_model,data,type="class")
 probability <- predict(decision_model, data, type = 'prob')
 rpart.plot(decision_model)
 
-#neuralnet
-library(neuralnet)
-NN_model<-neuralnet(Class~.,train_data,linear.output=FALSE)
-plot(NN_model)
-
-predNN<-compute(NN_model,test_data)
-resultNN<-predNN$net.result
-resultNN=ifelse(resultNN>0.5,1,0)
 
 
